@@ -1,6 +1,8 @@
 import React from "react";
-import { Box, makeStyles, createStyles } from "@material-ui/core";
+import { Box } from "@material-ui/core";
 import ChooseLanguage from "./chooseLanguage/chooseLanguage";
+import Link from "next/link";
+import Menu from "./menu/menu";
 
 const NavigationBar = () => {
   return (
@@ -15,7 +17,7 @@ const NavigationBar = () => {
       }}
     >
       <ChooseLanguage />
-      <Box>MENU HERE</Box>
+      <Menu />
     </Box>
   );
 };

@@ -13,7 +13,7 @@ const Layout: FC = ({ children }) => {
         alignItems: "center",
         backgroundPosition: "center",
         backgroundImage: `url(${BackgroundPath})`,
-        minHeight: "-webkit-fill-available",
+        minHeight: "100vh",
       }}
       maxWidth={false}
     >

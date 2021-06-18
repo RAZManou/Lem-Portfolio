@@ -3,6 +3,7 @@ import React, { FC } from "react";
 import { FlagEnums } from "../../../../../constants/translations";
 import { useTranslation } from "react-i18next";
 import { CircleFlag } from "react-circle-flags";
+import { LANGUAGE_CHOICE } from "../../../../../constants/localStorages";
 
 interface Props {
   language: FlagEnums;
@@ -14,7 +15,9 @@ const CustomFlag: FC<Props> = (props) => {
   const { i18n } = useTranslation();
 
   const changeLanguage = () => {
-    i18n.changeLanguage(language);
+    i18n.changeLanguage(language).then(() => {
+      localStorage.setItem(LANGUAGE_CHOICE, language);
+    });
   };
 
   return (

@@ -5,6 +5,7 @@ import { useTranslation } from "react-i18next";
 import { useEffect } from "react";
 import { LANGUAGE_CHOICE } from "../constants/localStorages";
 import { Box } from "@material-ui/core";
+import THEMES from "../constants/themes";
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
   const { i18n } = useTranslation();
@@ -21,6 +22,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
       style={{
         fontSize: 18,
         fontFamily: "inherit",
+        color: THEMES.dark.white,
       }}
     >
       <Component {...pageProps} />

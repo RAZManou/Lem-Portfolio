@@ -3,6 +3,7 @@ import { Box } from "@material-ui/core";
 import { MenuInterface, ROUTES } from "../../../../constants/routes";
 import { useTranslation } from "react-i18next";
 import Link from "next/link";
+import MenuItem from "./menuItem/menuItem";
 
 const Menu: FC = () => {
   const { t } = useTranslation();
@@ -17,18 +18,11 @@ const Menu: FC = () => {
       route: ROUTES.ABOUT,
     },
   ];
+
   return (
     <Box style={{ display: "flex" }}>
       {MENUS.map((menu) => (
-        <Box
-          key={menu.route}
-          style={{
-            paddingLeft: 15,
-            paddingRight: 15,
-          }}
-        >
-          <Link href={menu.route}>{menu.label}</Link>
-        </Box>
+        <MenuItem key={menu.route} menu={menu} />
       ))}
     </Box>
   );

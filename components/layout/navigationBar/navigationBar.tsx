@@ -10,7 +10,6 @@ const NavigationBar = () => {
       style={{
         display: "flex",
         flexDirection: "row",
-        height: 60,
         width: "inherit",
         justifyContent: "space-between",
         alignItems: "center",

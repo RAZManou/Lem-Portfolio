@@ -4,9 +4,10 @@ import "../services/i18n";
 import { useTranslation } from "react-i18next";
 import { useEffect } from "react";
 import { LANGUAGE_CHOICE } from "../constants/localStorages";
+import { Box } from "@material-ui/core";
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
-  const { t, i18n } = useTranslation();
+  const { i18n } = useTranslation();
 
   // Get language choice saved in localStorage
   useEffect(() => {
@@ -14,6 +15,16 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
     if (languageChoice) i18n.changeLanguage(languageChoice);
   }, [i18n]);
 
-  return <Component {...pageProps} />;
+  return (
+    // Default fontSize & fontFamily Here
+    <Box
+      style={{
+        fontSize: 18,
+        fontFamily: "inherit",
+      }}
+    >
+      <Component {...pageProps} />
+    </Box>
+  );
 };
 export default MyApp;

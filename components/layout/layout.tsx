@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { Container } from "@material-ui/core";
+import { Container, Box } from "@material-ui/core";
 import NavigationBar from "./navigationBar/navigationBar";
 
 const BackgroundPath = "/home_background_image.png";
@@ -18,7 +18,14 @@ const Layout: FC = ({ children }) => {
       maxWidth={false}
     >
       <NavigationBar />
-      {children}
+      <Box
+        style={{
+          width: "100vw",
+          height: "calc(100vh - 80px)",
+        }}
+      >
+        {children}
+      </Box>
     </Container>
   );
 };

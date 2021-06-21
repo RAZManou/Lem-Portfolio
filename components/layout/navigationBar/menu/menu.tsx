@@ -17,6 +17,18 @@ const Menu: FC = () => {
       label: t("menu.about"),
       route: ROUTES.ABOUT,
     },
+    {
+      label: t("menu.skills"),
+      route: ROUTES.SKILLS,
+    },
+    {
+      label: t("menu.career"),
+      route: ROUTES.CAREER,
+    },
+    {
+      label: t("menu.contact"),
+      route: ROUTES.CONTACT,
+    },
   ];
 
   return (

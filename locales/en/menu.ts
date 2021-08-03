@@ -2,7 +2,7 @@ const menu = {
   "menu.home": "Home",
   "menu.about": "About Me",
   "menu.skills": "Skills",
-  "menu.carrer": "Career",
+  "menu.career": "Career",
   "menu.projects": "Projects",
   "menu.contact": "Contact",
 };

@@ -1,6 +1,6 @@
 const THEMES = {
   dark: {
-    primary: "#f6492e",
+    primary: "#f55036",
     white: "#fff",
   },
 };

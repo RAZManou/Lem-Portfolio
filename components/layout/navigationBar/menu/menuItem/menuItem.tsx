@@ -1,8 +1,8 @@
-import React, { FC } from "react";
-import { Box } from "@material-ui/core";
-import { MenuInterface } from "../../../../../constants/routes";
-import { useRouter } from "next/router";
-import THEMES from "../../../../../constants/themes";
+import React, { FC } from 'react';
+import { Box } from '@material-ui/core';
+import { MenuInterface } from '../../../../../constants/routes';
+import { useRouter } from 'next/router';
+import THEMES from '../../../../../constants/themes';
 
 interface Props {
   menu: MenuInterface;
@@ -21,15 +21,15 @@ const MenuItem: FC<Props> = (props) => {
   return (
     <Box
       style={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "space-between",
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'space-between',
         paddingLeft: 25,
         paddingRight: 25,
         marginTop: 30,
         marginBottom: 20,
-        cursor: "pointer",
+        cursor: 'pointer',
         color: isSelected ? THEMES.dark.primary : THEMES.dark.white,
         height: 30,
       }}

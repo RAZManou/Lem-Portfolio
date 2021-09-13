@@ -7,31 +7,27 @@ interface Props {
   buttonStyle?: React.CSSProperties;
 }
 
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    button: {
-      borderRadius: 50,
-      borderColor: THEMES.dark.white,
-      color: THEMES.dark.white,
-      textTransform: 'none',
-      paddingTop: 0,
-      paddingBottom: 0,
-    },
-  })
-);
-
 const RoundButton: FC<Props> = (props) => {
   const { text, buttonStyle } = props;
+
+  const useStyles = makeStyles((theme: Theme) =>
+    createStyles({
+      button: {
+        borderRadius: 50,
+        borderColor: THEMES.dark.white,
+        color: THEMES.dark.white,
+        textTransform: 'none',
+        paddingTop: 0,
+        paddingBottom: 0,
+        ...buttonStyle,
+      },
+    })
+  );
+
   const classes = useStyles();
 
   return (
-    <Button
-      className={classes.button}
-      style={{
-        ...buttonStyle,
-      }}
-      variant="outlined"
-    >
+    <Button className={classes.button} variant="outlined">
       {text}
     </Button>
   );

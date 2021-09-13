@@ -1,4 +1,10 @@
-import { Box, createStyles, makeStyles, Theme } from '@material-ui/core';
+import {
+  Box,
+  createStyles,
+  Divider,
+  makeStyles,
+  Theme,
+} from '@material-ui/core';
 import React, { FC } from 'react';
 import FONT_SIZES from '../../constants/fontSizes';
 import THEMES from '../../constants/themes';
@@ -8,10 +14,11 @@ interface Props {
   subTitle?: string;
   titleStyle?: React.CSSProperties;
   subTitleStyle?: React.CSSProperties;
+  noDivider?: boolean;
 }
 
 const ScreenTitle: FC<Props> = (props) => {
-  const { title, subTitle, titleStyle, subTitleStyle } = props;
+  const { title, subTitle, titleStyle, subTitleStyle, noDivider } = props;
 
   const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -37,11 +44,16 @@ const ScreenTitle: FC<Props> = (props) => {
         color: THEMES.dark.white,
         textTransform: 'none',
         marginTop: 10,
-        marginBottom: 10,
+        marginBottom: 30,
         textAlign: 'center',
         maxWidth: 500,
         fontSize: FONT_SIZES.default,
         ...subTitleStyle,
+      },
+      divider: {
+        width: 75,
+        height: 3,
+        backgroundColor: THEMES.dark.primary,
       },
     })
   );
@@ -51,7 +63,8 @@ const ScreenTitle: FC<Props> = (props) => {
   return (
     <Box className={classes.container}>
       <Box className={classes.title}>{title}</Box>
-      <Box className={classes.subTitle}>{subTitle}</Box>
+      {subTitle && <Box className={classes.subTitle}>{subTitle}</Box>}
+      {!noDivider && <Divider className={classes.divider} />}
     </Box>
   );
 };

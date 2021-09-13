@@ -1,7 +1,7 @@
 const FONT_SIZES = {
     primaryTitle: 50,
     secondaryTitle: 35,
-    screenTitle: 25,
+    screenTitle: 30,
     default: 18,
 };
 

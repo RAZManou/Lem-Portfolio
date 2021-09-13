@@ -5,10 +5,11 @@ import THEMES from '../../constants/themes';
 interface Props {
   text?: string;
   buttonStyle?: React.CSSProperties;
+  onClick?(): void;
 }
 
 const RoundButton: FC<Props> = (props) => {
-  const { text, buttonStyle } = props;
+  const { text, buttonStyle, onClick } = props;
 
   const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -29,7 +30,7 @@ const RoundButton: FC<Props> = (props) => {
   const classes = useStyles();
 
   return (
-    <Button className={classes.button} variant="outlined">
+    <Button className={classes.button} variant="outlined" onClick={onClick}>
       {text}
     </Button>
   );

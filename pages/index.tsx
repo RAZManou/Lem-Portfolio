@@ -1,11 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {
-  Box,
-  createStyles,
-  makeStyles,
-  Theme,
-  Typography,
-} from '@material-ui/core';
+import { Box, createStyles, makeStyles, Theme } from '@material-ui/core';
 import Layout from '../components/layout/layout';
 import { useTranslation } from 'react-i18next';
 import THEMES from '../constants/themes';
@@ -109,12 +103,10 @@ const Home = () => {
   return (
     <Layout>
       <Box className={classes.container}>
-        <Typography className={classes.jobTitle}>
-          {t('home.job.title')}
-        </Typography>
-        <Typography className={classes.fullName}>
+        <Box className={classes.jobTitle}>{t('home.job.title')}</Box>
+        <Box className={classes.fullName}>
           {`${FIRSTNAME} ${SECOND_FIRSTNAME} ${NAME}`}
-        </Typography>
+        </Box>
         <Box className={classes.introContainer}>
           <Box className={classes.intro1And2}>
             {t('home.intro.1')}

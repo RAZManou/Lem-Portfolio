@@ -1,4 +1,4 @@
-import { Box, makeStyles, createStyles, Slide } from '@material-ui/core';
+import { Box, makeStyles, createStyles, Slide, Theme } from '@material-ui/core';
 import React, { useContext } from 'react';
 import { FlagEnums } from '../../../../constants/translations';
 import CustomFlag from './customFlag/customFlag';
@@ -10,15 +10,21 @@ const ChooseLanguage = () => {
   const { isFirstLoad } = useContext(FirstLoadContext);
   const currentLanguage = i18n.language;
 
+  const useStyles = makeStyles((theme: Theme) =>
+    createStyles({
+      container: {
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'center',
+      },
+    })
+  );
+
+  const classes = useStyles();
+
   return (
     <Slide in direction="right" timeout={1000} appear={isFirstLoad}>
-      <Box
-        style={{
-          display: 'flex',
-          flexDirection: 'row',
-          justifyContent: 'center',
-        }}
-      >
+      <Box className={classes.container}>
         {currentLanguage === FlagEnums.FRENCH ? (
           <CustomFlag language={FlagEnums.ENGLISH} />
         ) : (

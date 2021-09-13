@@ -9,13 +9,16 @@ import {
 import Layout from '../components/layout/layout';
 import { useTranslation } from 'react-i18next';
 import THEMES from '../constants/themes';
-import { NAME, FIRSTNAME } from '../constants/personalInfos';
+import { NAME, FIRSTNAME, SECOND_FIRSTNAME } from '../constants/personalInfos';
 import RoundButton from '../components/buttons/RoundButton';
+import { useRouter } from 'next/router';
+import { ROUTES } from '../constants/routes';
 
 const duration = 1000;
 
 const Home = () => {
   const { t } = useTranslation();
+  const router = useRouter();
 
   const [opacityTitle, setOpacityTitle] = useState(0);
   const [opacityName, setOpacityName] = useState(0);
@@ -95,6 +98,14 @@ const Home = () => {
     }, duration * 2);
   }, []);
 
+  const handleNavigateToAboutMe = () => {
+    router.push(ROUTES.ABOUT);
+  };
+
+  const handleNavigateToCareer = () => {
+    router.push(ROUTES.CAREER);
+  };
+
   return (
     <Layout>
       <Box className={classes.container}>
@@ -102,7 +113,7 @@ const Home = () => {
           {t('home.job.title')}
         </Typography>
         <Typography className={classes.fullName}>
-          {`${FIRSTNAME} ${NAME}`}
+          {`${FIRSTNAME} ${SECOND_FIRSTNAME} ${NAME}`}
         </Typography>
         <Box className={classes.introContainer}>
           <Box className={classes.intro1And2}>
@@ -117,8 +128,21 @@ const Home = () => {
           </Box>
         </Box>
         <Box className={classes.buttonsContainer}>
-          <RoundButton text="My portfolio" />
-          <RoundButton text="Me" />
+          <RoundButton
+            text="My portfolio"
+            buttonStyle={{
+              borderColor: THEMES.dark.primary,
+            }}
+            onClick={handleNavigateToCareer}
+          />
+          <RoundButton
+            text="Me"
+            buttonStyle={{
+              borderColor: THEMES.dark.primary,
+              backgroundColor: THEMES.dark.primary,
+            }}
+            onClick={handleNavigateToAboutMe}
+          />
         </Box>
       </Box>
     </Layout>

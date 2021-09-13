@@ -22,6 +22,7 @@ const RoundButton: FC<Props> = (props) => {
         paddingBottom: 0,
         marginLeft: 10,
         marginRight: 10,
+        fontFamily: 'inherit',
         ...buttonStyle,
       },
     })

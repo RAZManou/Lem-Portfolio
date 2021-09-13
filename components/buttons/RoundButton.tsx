@@ -19,6 +19,8 @@ const RoundButton: FC<Props> = (props) => {
         textTransform: 'none',
         paddingTop: 0,
         paddingBottom: 0,
+        marginLeft: 10,
+        marginRight: 10,
         ...buttonStyle,
       },
     })

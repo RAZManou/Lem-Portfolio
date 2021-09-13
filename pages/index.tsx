@@ -7,6 +7,7 @@ import { NAME, FIRSTNAME, SECOND_FIRSTNAME } from '../constants/personalInfos';
 import RoundButton from '../components/buttons/RoundButton';
 import { useRouter } from 'next/router';
 import { ROUTES } from '../constants/routes';
+import FONT_SIZES from '../constants/fontSizes';
 
 const duration = 1000;
 
@@ -33,14 +34,14 @@ const Home = () => {
         alignItems: 'center',
       },
       jobTitle: {
-        fontSize: 50,
+        fontSize: FONT_SIZES.primaryTitle,
         fontWeight: 'bold',
         textAlign: 'center',
         ...defaultStyle,
         opacity: opacityTitle,
       },
       fullName: {
-        fontSize: 35,
+        fontSize: FONT_SIZES.secondaryTitle,
         textAlign: 'center',
         marginTop: 35,
         ...defaultStyle,

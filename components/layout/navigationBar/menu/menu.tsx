@@ -1,13 +1,11 @@
-import React, { FC, useContext } from 'react';
+import React, { FC } from 'react';
 import { Box, Slide } from '@material-ui/core';
 import { MenuInterface, ROUTES } from '../../../../constants/routes';
 import { useTranslation } from 'react-i18next';
 import MenuItem from './menuItem/menuItem';
-import { FirstLoadContext } from '../../../../providers/FirstLoadProvider';
 
 const Menu: FC = () => {
   const { t } = useTranslation();
-  const { isFirstLoad } = useContext(FirstLoadContext);
 
   const MENUS: MenuInterface[] = [
     {
@@ -33,7 +31,7 @@ const Menu: FC = () => {
   ];
 
   return (
-    <Slide in direction="left" timeout={1000} appear={isFirstLoad}>
+    <Slide in direction="left" timeout={1000}>
       <Box style={{ display: 'flex' }}>
         {MENUS.map((menu) => (
           <MenuItem key={menu.route} menu={menu} />

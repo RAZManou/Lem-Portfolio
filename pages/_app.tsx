@@ -8,6 +8,7 @@ import { Box } from '@material-ui/core';
 import THEMES from '../constants/themes';
 import FONT_SIZES from '../constants/fontSizes';
 import FirstLoadProvider from '../providers/FirstLoadProvider';
+import Layout from '../components/layout/layout';
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
   const { i18n } = useTranslation();
@@ -21,15 +22,17 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
   return (
     // Default fontSize & fontFamily Here
     <FirstLoadProvider>
-      <Box
-        style={{
-          fontSize: FONT_SIZES.default,
-          fontFamily: 'inherit',
-          color: THEMES.dark.white,
-        }}
-      >
-        <Component {...pageProps} />
-      </Box>
+      <Layout>
+        <Box
+          style={{
+            fontSize: FONT_SIZES.default,
+            fontFamily: 'inherit',
+            color: THEMES.dark.white,
+          }}
+        >
+          <Component {...pageProps} />
+        </Box>
+      </Layout>
     </FirstLoadProvider>
   );
 };

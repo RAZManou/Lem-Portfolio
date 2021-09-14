@@ -78,45 +78,43 @@ const Home = () => {
   };
 
   return (
-    <Layout>
-      <Box className={classes.container}>
-        <Grow in={true}>
-          <Box className={classes.jobTitle}>{t('home.job.title')}</Box>
-        </Grow>
-        <Grow in={true} timeout={duration}>
-          <Box className={classes.fullName}>
-            {`${FIRSTNAME} ${SECOND_FIRSTNAME} ${NAME}`}
+    <Box className={classes.container}>
+      <Grow in={true}>
+        <Box className={classes.jobTitle}>{t('home.job.title')}</Box>
+      </Grow>
+      <Grow in={true} timeout={duration}>
+        <Box className={classes.fullName}>
+          {`${FIRSTNAME} ${SECOND_FIRSTNAME} ${NAME}`}
+        </Box>
+      </Grow>
+      <Grow in={true} timeout={duration * 2}>
+        <Box className={classes.introContainer}>
+          <Box className={classes.intro1And2}>
+            {t('home.intro.1')}
+            <Box className={classes.firstName}>{FIRSTNAME}</Box>
+            {t('home.intro.2')}
           </Box>
-        </Grow>
-        <Grow in={true} timeout={duration * 2}>
-          <Box className={classes.introContainer}>
-            <Box className={classes.intro1And2}>
-              {t('home.intro.1')}
-              <Box className={classes.firstName}>{FIRSTNAME}</Box>
-              {t('home.intro.2')}
-            </Box>
 
-            <Box className={classes.flexContainer}>
-              <Box className={classes.intro3}>{t('home.intro.3')}</Box>
-              {t('home.intro.4')}
-            </Box>
+          <Box className={classes.flexContainer}>
+            <Box className={classes.intro3}>{t('home.intro.3')}</Box>
+            {t('home.intro.4')}
           </Box>
-        </Grow>
-        <Grow in={true} timeout={duration * 3}>
-          <Box className={classes.buttonsContainer}>
-            <RoundButton
-              text={t('home.my.portfolio')}
-              onClick={handleNavigateToCareer}
-            />
-            <RoundButton
-              icon={<PlayArrowIcon fontSize="large" />}
-              invertedColor
-              onClick={handleNavigateToAboutMe}
-            />
-          </Box>
-        </Grow>
-      </Box>
-    </Layout>
+        </Box>
+      </Grow>
+      <Grow in={true} timeout={duration * 3}>
+        <Box className={classes.buttonsContainer}>
+          <RoundButton
+            text={t('home.my.portfolio')}
+            onClick={handleNavigateToCareer}
+          />
+          <RoundButton
+            icon={<PlayArrowIcon fontSize="large" />}
+            invertedColor
+            onClick={handleNavigateToAboutMe}
+          />
+        </Box>
+      </Grow>
+    </Box>
   );
 };
 

@@ -4,25 +4,36 @@ import THEMES from '../../constants/themes';
 
 interface Props {
   text?: string;
+  icon?: JSX.Element;
   buttonStyle?: React.CSSProperties;
   onClick?(): void;
+  invertedColor?: boolean;
 }
 
 const RoundButton: FC<Props> = (props) => {
-  const { text, buttonStyle, onClick } = props;
+  const { text, icon, buttonStyle, onClick, invertedColor } = props;
 
   const useStyles = makeStyles((theme: Theme) =>
     createStyles({
       button: {
         borderRadius: 50,
-        borderColor: THEMES.dark.white,
+        borderColor: THEMES.dark.primary,
+        backgroundColor: invertedColor ? THEMES.dark.primary : 'transparent',
+        borderWidth: 3,
         color: THEMES.dark.white,
         textTransform: 'none',
-        paddingTop: 0,
-        paddingBottom: 0,
-        marginLeft: 10,
+        paddingTop: 8,
+        paddingBottom: 8,
+        paddingLeft: 40,
+        paddingRight: 40,
+        marginLeft: 20,
         marginRight: 10,
         fontFamily: 'inherit',
+        fontSize: 18,
+        '&:hover': {
+          backgroundColor: THEMES.dark.primary,
+          color: THEMES.dark.white,
+        },
         ...buttonStyle,
       },
     })
@@ -32,6 +43,7 @@ const RoundButton: FC<Props> = (props) => {
 
   return (
     <Button className={classes.button} variant="outlined" onClick={onClick}>
+      {icon}
       {text}
     </Button>
   );

@@ -12,13 +12,23 @@ import THEMES from '../../constants/themes';
 interface Props {
   title: string;
   subTitle?: string;
+  containerStyle?: React.CSSProperties;
   titleStyle?: React.CSSProperties;
   subTitleStyle?: React.CSSProperties;
   noDivider?: boolean;
+  alignText?: 'left' | 'center' | 'right';
 }
 
 const ScreenTitle: FC<Props> = (props) => {
-  const { title, subTitle, titleStyle, subTitleStyle, noDivider } = props;
+  const {
+    title,
+    subTitle,
+    containerStyle,
+    titleStyle,
+    subTitleStyle,
+    noDivider,
+    alignText,
+  } = props;
 
   const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -30,14 +40,16 @@ const ScreenTitle: FC<Props> = (props) => {
         paddingRight: 20,
         marginTop: 20,
         marginBottom: 20,
+        ...containerStyle,
       },
       title: {
         color: THEMES.dark.white,
         textTransform: 'none',
         marginBottom: 20,
-        textAlign: 'center',
+        textAlign: alignText || 'center',
         fontWeight: 'bold',
         fontSize: FONT_SIZES.screenTitle,
+        width: 500,
         ...titleStyle,
       },
       subTitle: {
@@ -45,7 +57,7 @@ const ScreenTitle: FC<Props> = (props) => {
         textTransform: 'none',
         marginTop: 10,
         marginBottom: 30,
-        textAlign: 'center',
+        textAlign: alignText || 'center',
         maxWidth: 500,
         fontSize: FONT_SIZES.default,
         ...subTitleStyle,

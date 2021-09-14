@@ -8,6 +8,7 @@ import {
 import React, { FC } from 'react';
 import FONT_SIZES from '../../constants/fontSizes';
 import THEMES from '../../constants/themes';
+import CustomDivider from '../customDivider/CustomDivider';
 
 interface Props {
   title: string;
@@ -36,8 +37,6 @@ const ScreenTitle: FC<Props> = (props) => {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        paddingLeft: 20,
-        paddingRight: 20,
         marginTop: 20,
         marginBottom: 20,
         ...containerStyle,
@@ -63,11 +62,6 @@ const ScreenTitle: FC<Props> = (props) => {
         lineHeight: 2,
         ...subTitleStyle,
       },
-      divider: {
-        width: 75,
-        height: 3,
-        backgroundColor: THEMES.dark.primary,
-      },
     })
   );
 
@@ -77,7 +71,7 @@ const ScreenTitle: FC<Props> = (props) => {
     <Box className={classes.container}>
       <Box className={classes.title}>{title}</Box>
       {subTitle && <Box className={classes.subTitle}>{subTitle}</Box>}
-      {!noDivider && <Divider className={classes.divider} />}
+      {!noDivider && <CustomDivider />}
     </Box>
   );
 };

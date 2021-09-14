@@ -1,6 +1,5 @@
 import React from 'react';
 import { Box, createStyles, Grow, makeStyles, Theme } from '@material-ui/core';
-import Layout from '../components/layout/layout';
 import { useTranslation } from 'react-i18next';
 import THEMES from '../constants/themes';
 import { NAME, FIRSTNAME, SECOND_FIRSTNAME } from '../constants/personalInfos';
@@ -9,6 +8,7 @@ import { useRouter } from 'next/router';
 import { ROUTES } from '../constants/routes';
 import FONT_SIZES from '../constants/fontSizes';
 import PlayArrowIcon from '@material-ui/icons/PlayArrow';
+import CustomDivider from '../components/customDivider/CustomDivider';
 
 const duration = 1000;
 
@@ -25,10 +25,15 @@ const Home = () => {
         justifyContent: 'center',
         alignItems: 'center',
       },
+      jobTitleContainer: {
+        display: 'flex',
+        alignItems: 'flex-end',
+      },
       jobTitle: {
         fontSize: FONT_SIZES.primaryTitle,
         fontWeight: 'bold',
         textAlign: 'center',
+        marginRight: 30,
       },
       fullName: {
         fontSize: FONT_SIZES.secondaryTitle,
@@ -80,7 +85,10 @@ const Home = () => {
   return (
     <Box className={classes.container}>
       <Grow in={true}>
-        <Box className={classes.jobTitle}>{t('home.job.title')}</Box>
+        <Box className={classes.jobTitleContainer}>
+          <Box className={classes.jobTitle}>{t('home.job.title')}</Box>
+          <CustomDivider orientation="vertical" />
+        </Box>
       </Grow>
       <Grow in={true} timeout={duration}>
         <Box className={classes.fullName}>

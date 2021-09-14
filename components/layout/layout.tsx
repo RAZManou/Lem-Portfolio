@@ -8,7 +8,7 @@ import {
 } from '@material-ui/core';
 import NavigationBar from './navigationBar/navigationBar';
 
-const BackgroundPath = '/home_background_image.png';
+const BackgroundPath = '/home_background_image.jpg';
 
 const Layout: FC = ({ children }) => {
   const useStyles = makeStyles((theme: Theme) =>
@@ -18,8 +18,10 @@ const Layout: FC = ({ children }) => {
         flexDirection: 'column',
         alignItems: 'center',
         backgroundPosition: 'center',
+        // backgroundColor: THEMES.dark.secondary,
         backgroundImage: `url(${BackgroundPath})`,
         minHeight: '100vh',
+        padding: 0,
       },
       boxScreen: {
         width: '100vw',

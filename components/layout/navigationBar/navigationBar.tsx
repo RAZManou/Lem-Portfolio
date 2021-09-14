@@ -3,6 +3,7 @@ import { Box, createStyles, makeStyles, Theme } from '@material-ui/core';
 import ChooseLanguage from './chooseLanguage/chooseLanguage';
 import Menu from './menu/menu';
 import { FirstLoadContext } from '../../../providers/FirstLoadProvider';
+import THEMES from '../../../constants/themes';
 
 const NavigationBar = () => {
   const { setIsFirstLoad } = useContext(FirstLoadContext);
@@ -15,6 +16,7 @@ const NavigationBar = () => {
         width: 'inherit',
         justifyContent: 'space-between',
         alignItems: 'center',
+        backgroundColor: THEMES.dark.secondaryDarkTransparent,
       },
     })
   );

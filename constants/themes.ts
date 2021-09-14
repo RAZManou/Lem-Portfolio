@@ -1,7 +1,10 @@
 const THEMES = {
   dark: {
-    primary: "#f55036",
-    white: "#fff",
+    primary: '#ff004b',
+    secondary: '#271f3c',
+    secondaryDark: '#221c36',
+    secondaryDarkTransparent: 'rgba(34, 28, 54, 0.5)',
+    white: '#fff',
   },
 };
 

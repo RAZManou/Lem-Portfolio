@@ -58,8 +58,9 @@ const ScreenTitle: FC<Props> = (props) => {
         marginTop: 10,
         marginBottom: 30,
         textAlign: alignText || 'center',
-        maxWidth: 500,
+        maxWidth: alignText === 'center' || !alignText ? 500 : undefined,
         fontSize: FONT_SIZES.default,
+        lineHeight: 2,
         ...subTitleStyle,
       },
       divider: {

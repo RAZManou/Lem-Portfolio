@@ -4,8 +4,7 @@ import { Box, createStyles, makeStyles, Theme } from '@material-ui/core';
 import React from 'react';
 import profilePic from '../public/me.png';
 import Image from 'next/image';
-
-const ImagePath = '/home_background_image.jpg';
+import Info from '../components/info/Info';
 
 const About = () => {
   const { t } = useTranslation();
@@ -23,6 +22,11 @@ const About = () => {
       },
       image: {
         opacity: 0.8,
+      },
+      aboutMeContainer: {
+        display: 'flex',
+        flexDirection: 'column',
+        paddingLeft: 100,
       },
       aboutMe: {
         paddingLeft: 100,
@@ -48,15 +52,20 @@ const About = () => {
             className={classes.image}
           />
         </Box>
-        <Box className={classes.aboutMe}>
-          <ScreenTitle
-            title="Sous titres"
-            subTitle="In id nulla magna. Nullam posuere fermentum mattis. Nunc id dui at sapien faucibus fermentum ut vel diam. Nullam tempus, nunc id efficitur sagittis, urna est ultricies eros, ac porta sem turpis
+        <Box className={classes.aboutMeContainer}>
+          <Box>
+            <ScreenTitle
+              title="Sous titres"
+              subTitle="In id nulla magna. Nullam posuere fermentum mattis. Nunc id dui at sapien faucibus fermentum ut vel diam. Nullam tempus, nunc id efficitur sagittis, urna est ultricies eros, ac porta sem turpis
             nunc id efficitur sagittis, urna est ultricies eros, ac porta sem turpis porta sem turpis quis leo. Nulla in feugiat elit"
-            alignText="left"
-            noDivider
-            containerStyle={{ marginTop: 0 }}
-          />
+              alignText="left"
+              noDivider
+              containerStyle={{ marginTop: 0 }}
+            />
+          </Box>
+          <Box>
+            <Info label="Name" value="Manoa RAZAFIMISATA" />
+          </Box>
         </Box>
       </Box>
     </>

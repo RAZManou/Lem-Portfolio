@@ -8,6 +8,7 @@ import RoundButton from '../components/buttons/RoundButton';
 import { useRouter } from 'next/router';
 import { ROUTES } from '../constants/routes';
 import FONT_SIZES from '../constants/fontSizes';
+import PlayArrowIcon from '@material-ui/icons/PlayArrow';
 
 const duration = 1000;
 
@@ -103,19 +104,10 @@ const Home = () => {
         </Grow>
         <Grow in={true} timeout={duration * 3}>
           <Box className={classes.buttonsContainer}>
+            <RoundButton text="My portfolio" onClick={handleNavigateToCareer} />
             <RoundButton
-              text="My portfolio"
-              buttonStyle={{
-                borderColor: THEMES.dark.primary,
-              }}
-              onClick={handleNavigateToCareer}
-            />
-            <RoundButton
-              text="Me"
-              buttonStyle={{
-                borderColor: THEMES.dark.primary,
-                backgroundColor: THEMES.dark.primary,
-              }}
+              icon={<PlayArrowIcon fontSize="large" />}
+              invertedColor
               onClick={handleNavigateToAboutMe}
             />
           </Box>

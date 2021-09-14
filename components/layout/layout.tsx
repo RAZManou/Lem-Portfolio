@@ -22,10 +22,12 @@ const Layout: FC = ({ children }) => {
         backgroundImage: `url(${BackgroundPath})`,
         minHeight: '100vh',
         padding: 0,
+        overflowX: 'hidden',
       },
       boxScreen: {
         width: '100vw',
         minHeight: 'calc(100vh - 80px)',
+        paddingTop: 80,
       },
     })
   );

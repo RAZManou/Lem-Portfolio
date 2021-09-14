@@ -17,6 +17,7 @@ const NavigationBar = () => {
         justifyContent: 'space-between',
         alignItems: 'center',
         backgroundColor: THEMES.dark.secondaryDarkTransparent,
+        position: 'fixed',
       },
     })
   );

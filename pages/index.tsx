@@ -21,7 +21,7 @@ const Home = () => {
       container: {
         display: 'flex',
         flexDirection: 'column',
-        height: '100%',
+        minHeight: 'calc(100vh - 80px)',
         justifyContent: 'center',
         alignItems: 'center',
       },
@@ -104,7 +104,10 @@ const Home = () => {
         </Grow>
         <Grow in={true} timeout={duration * 3}>
           <Box className={classes.buttonsContainer}>
-            <RoundButton text="My portfolio" onClick={handleNavigateToCareer} />
+            <RoundButton
+              text={t('home.my.portfolio')}
+              onClick={handleNavigateToCareer}
+            />
             <RoundButton
               icon={<PlayArrowIcon fontSize="large" />}
               invertedColor

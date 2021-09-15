@@ -53,8 +53,8 @@ const About = () => {
         <Box className={classes.profilPic}>
           <ProfilePic />
         </Box>
-        <Box className={classes.aboutMeContainer}>
-          <Slide in direction="left" timeout={defaultTimeout}>
+        <Slide in direction="left" timeout={defaultTimeout}>
+          <Box className={classes.aboutMeContainer}>
             <Box>
               <ScreenTitle
                 title="Sous titres"
@@ -65,14 +65,14 @@ const About = () => {
                 containerStyle={{ marginTop: 0 }}
               />
             </Box>
-          </Slide>
-          <Box className={classes.infoContainer}>
-            <Info label="Name" value="Manoa RAZAFIMISATA" />
-            <Info label="Email" value="manoandoniaina@gmail.com" />
-            <Info label="Téléphone" value="+261 34 49 808 53" />
-            <Info label="LinkedIn" value="Manoa RAZAFIMISATA" />
+            <Box className={classes.infoContainer}>
+              <Info label="Name" value="Manoa RAZAFIMISATA" />
+              <Info label="Email" value="manoandoniaina@gmail.com" />
+              <Info label="Téléphone" value="+261 34 49 808 53" />
+              <Info label="LinkedIn" value="Manoa RAZAFIMISATA" />
+            </Box>
           </Box>
-        </Box>
+        </Slide>
       </Box>
     </>
   );

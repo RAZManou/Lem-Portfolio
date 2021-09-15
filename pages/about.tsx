@@ -8,6 +8,7 @@ import { defaultTimeout } from '../constants/animations';
 import {
   EMAIL,
   FULL_NAME,
+  getMyAge,
   LINKEDIN_NAME,
   PHONE_TELMA,
   SKYPE_PRO_PSEUDO,
@@ -73,11 +74,12 @@ const About = () => {
               />
             </Box>
             <Box className={classes.infoContainer}>
-              <Info label="Name" value={`${FULL_NAME}`} />
-              <Info label="Email" value={EMAIL} />
-              <Info label="Téléphone" value={PHONE_TELMA} />
-              <Info label="LinkedIn" value={LINKEDIN_NAME} />
-              <Info label="Pseudo Skype" value={SKYPE_PRO_PSEUDO} />
+              <Info label={t('common.name')} value={`${FULL_NAME}`} />
+              <Info label={t('common.age')} value={`${getMyAge()} ans`} />
+              <Info label={t('common.email')} value={EMAIL} />
+              <Info label={t('common.phone')} value={PHONE_TELMA} />
+              <Info label={t('common.linkedin')} value={LINKEDIN_NAME} />
+              <Info label={t('common.skype.pseudo')} value={SKYPE_PRO_PSEUDO} />
             </Box>
           </Box>
         </Slide>

@@ -4,7 +4,7 @@ import THEMES from '../../constants/themes';
 
 interface Props {
   label: string;
-  value?: string;
+  value?: string | number;
   style?: React.CSSProperties;
 }
 

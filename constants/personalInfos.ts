@@ -10,3 +10,10 @@ export const SKYPE_PRO = 'Manoa.Wylog';
 export const SKYPE_PRO_PSEUDO = 'live:.cid.ce1e99c83decd98a';
 export const SKYPE_PERSO = 'Manou RAZAFIMISATA';
 export const SKYPE_PERSO_PSEUDO = 'live:.cid.b1d047a53e1890ec';
+export const BIRTH_YEAR = 1996;
+
+export const getMyAge = () => {
+  const today = new Date();
+  const currentYear = today.getFullYear();
+  return currentYear - BIRTH_YEAR;
+};

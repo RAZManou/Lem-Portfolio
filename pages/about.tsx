@@ -5,6 +5,13 @@ import React from 'react';
 import Info from '../components/info/Info';
 import ProfilePic from '../components/images/ProfilePic';
 import { defaultTimeout } from '../constants/animations';
+import {
+  EMAIL,
+  FULL_NAME,
+  LINKEDIN_NAME,
+  PHONE_TELMA,
+  SKYPE_PRO_PSEUDO,
+} from '../constants/personalInfos';
 
 const About = () => {
   const { t } = useTranslation();
@@ -66,10 +73,11 @@ const About = () => {
               />
             </Box>
             <Box className={classes.infoContainer}>
-              <Info label="Name" value="Manoa RAZAFIMISATA" />
-              <Info label="Email" value="manoandoniaina@gmail.com" />
-              <Info label="Téléphone" value="+261 34 49 808 53" />
-              <Info label="LinkedIn" value="Manoa RAZAFIMISATA" />
+              <Info label="Name" value={`${FULL_NAME}`} />
+              <Info label="Email" value={EMAIL} />
+              <Info label="Téléphone" value={PHONE_TELMA} />
+              <Info label="LinkedIn" value={LINKEDIN_NAME} />
+              <Info label="Pseudo Skype" value={SKYPE_PRO_PSEUDO} />
             </Box>
           </Box>
         </Slide>

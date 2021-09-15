@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, createStyles, Grow, makeStyles, Theme } from '@material-ui/core';
 import { useTranslation } from 'react-i18next';
 import THEMES from '../constants/themes';
-import { NAME, FIRSTNAME, SECOND_FIRSTNAME } from '../constants/personalInfos';
+import { FIRSTNAME, FULL_NAME } from '../constants/personalInfos';
 import RoundButton from '../components/buttons/RoundButton';
 import { useRouter } from 'next/router';
 import { ROUTES } from '../constants/routes';
@@ -91,9 +91,7 @@ const Home = () => {
         </Box>
       </Grow>
       <Grow in={true} timeout={duration}>
-        <Box className={classes.fullName}>
-          {`${FIRSTNAME} ${SECOND_FIRSTNAME} ${NAME}`}
-        </Box>
+        <Box className={classes.fullName}>{`${FULL_NAME} `}</Box>
       </Grow>
       <Grow in={true} timeout={duration * 2}>
         <Box className={classes.introContainer}>

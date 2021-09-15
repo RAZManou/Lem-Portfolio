@@ -32,7 +32,7 @@ const SkillItem: FC<Props> = (props) => {
         fontWeight: 'bold',
       },
       root: {
-        color: THEMES.dark.primary,
+        color: THEMES.dark.primaryTransparent,
         height: 8,
       },
       thumb: {
@@ -49,7 +49,7 @@ const SkillItem: FC<Props> = (props) => {
       valueLabel: {
         left: 'calc(-50% + 8px)',
         fontWeight: 'bold',
-        color: THEMES.dark.primary,
+        color: THEMES.dark.primaryTransparent,
         fontSize: 12,
       },
       track: {

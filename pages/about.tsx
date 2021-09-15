@@ -5,14 +5,7 @@ import React from 'react';
 import Info from '../components/info/Info';
 import ProfilePic from '../components/images/ProfilePic';
 import { defaultTimeout } from '../constants/animations';
-import {
-  EMAIL,
-  FULL_NAME,
-  getMyAge,
-  LINKEDIN_NAME,
-  PHONE_TELMA,
-  SKYPE_PRO_PSEUDO,
-} from '../constants/personalInfos';
+import myPersonalInfos, { getMyAge } from '../constants/personalInfos';
 
 const About = () => {
   const { t } = useTranslation();
@@ -74,12 +67,24 @@ const About = () => {
               />
             </Box>
             <Box className={classes.infoContainer}>
-              <Info label={t('common.name')} value={`${FULL_NAME}`} />
+              <Info
+                label={t('common.name')}
+                value={`${myPersonalInfos.FULL_NAME}`}
+              />
               <Info label={t('common.age')} value={`${getMyAge()} ans`} />
-              <Info label={t('common.email')} value={EMAIL} />
-              <Info label={t('common.phone')} value={PHONE_TELMA} />
-              <Info label={t('common.linkedin')} value={LINKEDIN_NAME} />
-              <Info label={t('common.skype.pseudo')} value={SKYPE_PRO_PSEUDO} />
+              <Info label={t('common.email')} value={myPersonalInfos.EMAIL} />
+              <Info
+                label={t('common.phone')}
+                value={myPersonalInfos.PHONE_TELMA}
+              />
+              <Info
+                label={t('common.linkedin')}
+                value={myPersonalInfos.LINKEDIN_NAME}
+              />
+              <Info
+                label={t('common.skype.pseudo')}
+                value={myPersonalInfos.SKYPE_PRO_PSEUDO}
+              />
             </Box>
           </Box>
         </Slide>

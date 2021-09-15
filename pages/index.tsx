@@ -2,13 +2,13 @@ import React from 'react';
 import { Box, createStyles, Grow, makeStyles, Theme } from '@material-ui/core';
 import { useTranslation } from 'react-i18next';
 import THEMES from '../constants/themes';
-import { FIRSTNAME, FULL_NAME } from '../constants/personalInfos';
 import RoundButton from '../components/buttons/RoundButton';
 import { useRouter } from 'next/router';
 import { ROUTES } from '../constants/routes';
 import FONT_SIZES from '../constants/fontSizes';
 import PlayArrowIcon from '@material-ui/icons/PlayArrow';
 import CustomDivider from '../components/customDivider/CustomDivider';
+import { myPersonalInfos } from '../constants/personalInfos';
 
 const duration = 1000;
 
@@ -91,13 +91,15 @@ const Home = () => {
         </Box>
       </Grow>
       <Grow in={true} timeout={duration}>
-        <Box className={classes.fullName}>{`${FULL_NAME} `}</Box>
+        <Box
+          className={classes.fullName}
+        >{`${myPersonalInfos.FULL_NAME} `}</Box>
       </Grow>
       <Grow in={true} timeout={duration * 2}>
         <Box className={classes.introContainer}>
           <Box className={classes.intro1And2}>
             {t('home.intro.1')}
-            <Box className={classes.firstName}>{FIRSTNAME}</Box>
+            <Box className={classes.firstName}>{myPersonalInfos.FIRSTNAME}</Box>
             {t('home.intro.2')}
           </Box>
 

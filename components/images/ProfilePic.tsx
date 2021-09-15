@@ -2,6 +2,7 @@ import { Box, createStyles, Fade, makeStyles, Theme } from '@material-ui/core';
 import React, { FC } from 'react';
 import profilePic from '../../public/me.png';
 import Image from 'next/image';
+import { defaultTimeout } from '../../constants/animations';
 
 interface Props {
   opacity?: number;
@@ -24,7 +25,7 @@ const ProfilePic: FC<Props> = (props) => {
   const classes = useStyles();
 
   return (
-    <Fade in timeout={1000}>
+    <Fade in timeout={defaultTimeout}>
       <Box>
         <Image
           src={profilePic}

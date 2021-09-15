@@ -16,6 +16,8 @@ const Info: FC<Props> = (props) => {
       container: {
         display: 'flex',
         flexDirection: 'column',
+        width: 300,
+        marginBottom: 50,
         ...style,
       },
       label: {

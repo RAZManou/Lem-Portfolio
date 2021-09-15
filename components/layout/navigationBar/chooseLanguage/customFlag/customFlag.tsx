@@ -1,9 +1,9 @@
-import { Fab } from "@material-ui/core";
-import React, { FC } from "react";
-import { FlagEnums } from "../../../../../constants/translations";
-import { useTranslation } from "react-i18next";
-import { CircleFlag } from "react-circle-flags";
-import { LANGUAGE_CHOICE } from "../../../../../constants/localStorages";
+import { Fab } from '@material-ui/core';
+import React, { FC } from 'react';
+import { FlagEnums } from '../../../../../constants/translations';
+import { useTranslation } from 'react-i18next';
+import { CircleFlag } from 'react-circle-flags';
+import { LANGUAGE_CHOICE } from '../../../../../constants/localStorages';
 
 interface Props {
   language: FlagEnums;
@@ -24,13 +24,13 @@ const CustomFlag: FC<Props> = (props) => {
     <Fab
       onClick={changeLanguage}
       style={{
-        justifyContent: "center",
+        justifyContent: 'center',
         margin: 10,
         height: 35,
         width: 35,
       }}
     >
-      <CircleFlag countryCode={language} height={"35"} />
+      <CircleFlag countryCode={language} height={'35'} />
     </Fab>
   );
 };

@@ -8,10 +8,11 @@ interface Props {
   buttonStyle?: React.CSSProperties;
   onClick?(): void;
   invertedColor?: boolean;
+  disabled?: boolean;
 }
 
 const RoundButton: FC<Props> = (props) => {
-  const { text, icon, buttonStyle, onClick, invertedColor } = props;
+  const { text, icon, buttonStyle, onClick, invertedColor, disabled } = props;
 
   const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -42,7 +43,12 @@ const RoundButton: FC<Props> = (props) => {
   const classes = useStyles();
 
   return (
-    <Button className={classes.button} variant="outlined" onClick={onClick}>
+    <Button
+      className={classes.button}
+      variant="outlined"
+      onClick={onClick}
+      disabled={disabled}
+    >
       {icon}
       {text}
     </Button>

@@ -66,9 +66,6 @@ const SkillItem: FC<Props> = (props) => {
         height: isGlobalSkill ? 8 : 6,
         color: THEMES.dark.secondary,
       },
-      test: {
-        color: 'blue',
-      },
     })
   );
 

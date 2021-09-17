@@ -4,6 +4,7 @@ import { Box, createStyles, makeStyles, Slide, Theme } from '@material-ui/core';
 import React from 'react';
 import { defaultTimeout } from '../constants/animations';
 import SkillItem from '../components/skill/SkillItem';
+import mySkills from '../constants/mySkills';
 
 const Skills = () => {
   const { t } = useTranslation();
@@ -42,10 +43,20 @@ const Skills = () => {
         </Box>
         <Slide in direction="left" timeout={defaultTimeout}>
           <Box className={classes.mySkillsContainer}>
-            <SkillItem label="React" value={90} />
-            <SkillItem label="React Native" value={70} />
-            <SkillItem label="GraphQL" value={80} />
-            <SkillItem label="Node" value={60} />
+            {mySkills.map((globalSkill) => (
+              <Box key={globalSkill.name}>
+                <SkillItem
+                  label={globalSkill.name}
+                  value={globalSkill.level}
+                  isGlobalSkill
+                />
+                {globalSkill.skills.map((skill) => (
+                  <Box key={skill.name}>
+                    <SkillItem label={skill.name} value={skill.level} />
+                  </Box>
+                ))}
+              </Box>
+            ))}
           </Box>
         </Slide>
       </Box>

@@ -4,19 +4,20 @@ import {
   makeStyles,
   Slider,
   Theme,
-  withStyles,
 } from '@material-ui/core';
 import React, { FC } from 'react';
+import FONT_SIZES from '../../constants/fontSizes';
 import THEMES from '../../constants/themes';
 
 interface Props {
   label: string;
   value?: number;
   style?: React.CSSProperties;
+  isGlobalSkill?: boolean;
 }
 
 const SkillItem: FC<Props> = (props) => {
-  const { label, value, style } = props;
+  const { label, value, style, isGlobalSkill } = props;
 
   const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -24,16 +25,20 @@ const SkillItem: FC<Props> = (props) => {
         display: 'flex',
         flexDirection: 'column',
         minWidth: 150,
-        marginBottom: 50,
+        marginBottom: 30,
+        marginLeft: !isGlobalSkill ? 50 : 0,
         ...style,
       },
       label: {
         color: THEMES.dark.white,
         fontWeight: 'bold',
+        fontSize: isGlobalSkill ? FONT_SIZES.title : FONT_SIZES.small,
       },
       root: {
-        color: THEMES.dark.primaryTransparent,
-        height: 8,
+        color: isGlobalSkill
+          ? THEMES.dark.primaryTransparent
+          : THEMES.dark.primaryVeryTransparent,
+        height: isGlobalSkill ? 8 : 6,
       },
       thumb: {
         height: 24,
@@ -49,14 +54,16 @@ const SkillItem: FC<Props> = (props) => {
       valueLabel: {
         left: 'calc(-50% + 8px)',
         fontWeight: 'bold',
-        color: THEMES.dark.primaryTransparent,
-        fontSize: 12,
+        color: isGlobalSkill
+          ? THEMES.dark.primaryTransparent
+          : THEMES.dark.primaryVeryTransparent,
+        fontSize: FONT_SIZES.smaller,
       },
       track: {
-        height: 8,
+        height: isGlobalSkill ? 8 : 6,
       },
       rail: {
-        height: 8,
+        height: isGlobalSkill ? 8 : 6,
         color: THEMES.dark.secondary,
       },
       test: {

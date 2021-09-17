@@ -26,7 +26,9 @@ const SkillItem: FC<Props> = (props) => {
         flexDirection: 'column',
         minWidth: 150,
         marginBottom: 30,
-        marginLeft: !isGlobalSkill ? 50 : 0,
+        marginLeft: !isGlobalSkill ? 100 : 50,
+        marginTop: isGlobalSkill ? 50 : 0,
+        marginRight: 100,
         ...style,
       },
       label: {

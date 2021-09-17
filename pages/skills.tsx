@@ -5,6 +5,7 @@ import React from 'react';
 import { defaultTimeout } from '../constants/animations';
 import SkillItem from '../components/skill/SkillItem';
 import mySkills from '../constants/mySkills';
+import Carousel from 'react-material-ui-carousel';
 
 const Skills = () => {
   const { t } = useTranslation();
@@ -15,7 +16,6 @@ const Skills = () => {
         display: 'flex',
         paddingLeft: '5%',
         paddingRight: '5%',
-        paddingTop: 100,
       },
       leftContainer: {
         maxWidth: '35%',
@@ -26,6 +26,7 @@ const Skills = () => {
         paddingLeft: 100,
         width: '100%',
       },
+      carousel: {},
     })
   );
 
@@ -41,8 +42,14 @@ const Skills = () => {
             noDivider
           />
         </Box>
-        <Slide in direction="left" timeout={defaultTimeout}>
-          <Box className={classes.mySkillsContainer}>
+        <Box className={classes.mySkillsContainer}>
+          <Carousel
+            className={classes.carousel}
+            autoPlay={false}
+            animation="slide"
+            navButtonsAlwaysVisible
+            cycleNavigation={false}
+          >
             {mySkills.map((globalSkill) => (
               <Box key={globalSkill.name}>
                 <SkillItem
@@ -57,8 +64,8 @@ const Skills = () => {
                 ))}
               </Box>
             ))}
-          </Box>
-        </Slide>
+          </Carousel>
+        </Box>
       </Box>
     </>
   );

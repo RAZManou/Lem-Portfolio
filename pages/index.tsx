@@ -1,108 +1,128 @@
-import React, { useState, useEffect } from "react";
-import { Box, Typography } from "@material-ui/core";
-import Layout from "../components/layout/layout";
-import { useTranslation } from "react-i18next";
-import THEMES from "../constants/themes";
-import { NAME, FIRSTNAME } from "../constants/personalInfos";
+import React from 'react';
+import { Box, createStyles, Grow, makeStyles, Theme } from '@material-ui/core';
+import { useTranslation } from 'react-i18next';
+import THEMES from '../constants/themes';
+import RoundButton from '../components/buttons/RoundButton';
+import { useRouter } from 'next/router';
+import { ROUTES } from '../constants/routes';
+import FONT_SIZES from '../constants/fontSizes';
+import PlayArrowIcon from '@material-ui/icons/PlayArrow';
+import CustomDivider from '../components/customDivider/CustomDivider';
+import { myPersonalInfos } from '../constants/personalInfos';
 
 const duration = 1000;
 
-const defaultStyle = {
-  transition: `opacity ${duration}ms ease-in-out`,
-  opacity: 0,
-};
-
 const Home = () => {
   const { t } = useTranslation();
+  const router = useRouter();
 
-  const [opacityTitle, setOpacityTitle] = useState(0);
-  const [opacityName, setOpacityName] = useState(0);
-  const [opacityDesc, setOpacityDesc] = useState(0);
+  const useStyles = makeStyles((theme: Theme) =>
+    createStyles({
+      container: {
+        display: 'flex',
+        flexDirection: 'column',
+        minHeight: 'calc(100vh - 80px)',
+        justifyContent: 'center',
+        alignItems: 'center',
+      },
+      jobTitleContainer: {
+        display: 'flex',
+        alignItems: 'flex-end',
+      },
+      jobTitle: {
+        fontSize: FONT_SIZES.primaryTitle,
+        fontWeight: 'bold',
+        textAlign: 'center',
+        marginRight: 30,
+      },
+      fullName: {
+        fontSize: FONT_SIZES.secondaryTitle,
+        textAlign: 'center',
+        marginTop: 35,
+      },
+      introContainer: {
+        textAlign: 'center',
+        marginTop: 70,
+        fontStyle: 'italic',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+      },
+      intro1And2: {
+        display: 'flex',
+        marginBottom: 10,
+      },
+      firstName: {
+        marginLeft: 5,
+        marginRight: 5,
+        color: THEMES.dark.primary,
+      },
+      flexContainer: {
+        display: 'flex',
+      },
+      intro3: {
+        marginLeft: 5,
+        marginRight: 5,
+        color: THEMES.dark.primary,
+      },
+      buttonsContainer: {
+        display: 'flex',
+        marginTop: 25,
+      },
+    })
+  );
 
-  useEffect(() => {
-    setOpacityTitle(1);
-    setTimeout(() => {
-      setOpacityName(1);
-    }, duration);
-    setTimeout(() => {
-      setOpacityDesc(1);
-    }, duration * 2);
-  }, []);
+  const classes = useStyles();
+
+  const handleNavigateToAboutMe = () => {
+    router.push(ROUTES.ABOUT);
+  };
+
+  const handleNavigateToCareer = () => {
+    router.push(ROUTES.CAREER);
+  };
 
   return (
-    <Layout>
-      <Box
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          height: "100%",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        <Typography
-          style={{
-            fontSize: 50,
-            fontWeight: "bold",
-            textAlign: "center",
-            ...defaultStyle,
-            opacity: opacityTitle,
-          }}
-        >
-          {t("home.job.title")}
-        </Typography>
-        <Typography
-          style={{
-            fontSize: 35,
-            textAlign: "center",
-            marginTop: 35,
-            ...defaultStyle,
-            opacity: opacityName,
-          }}
-        >
-          {`${FIRSTNAME} ${NAME}`}
-        </Typography>
+    <Box className={classes.container}>
+      <Grow in={true}>
+        <Box className={classes.jobTitleContainer}>
+          <Box className={classes.jobTitle}>{t('home.job.title')}</Box>
+          <CustomDivider orientation="vertical" />
+        </Box>
+      </Grow>
+      <Grow in={true} timeout={duration}>
         <Box
-          style={{
-            textAlign: "center",
-            marginTop: 70,
-            fontStyle: "italic",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            ...defaultStyle,
-            opacity: opacityDesc,
-          }}
-        >
-          <Box style={{ display: "flex", marginBottom: 10 }}>
-            {t("home.intro.1")}
-            <Box
-              style={{
-                marginLeft: 5,
-                marginRight: 5,
-                color: THEMES.dark.primary,
-              }}
-            >
-              {FIRSTNAME}
-            </Box>
-            {t("home.intro.2")}
+          className={classes.fullName}
+        >{`${myPersonalInfos.FULL_NAME} `}</Box>
+      </Grow>
+      <Grow in={true} timeout={duration * 2}>
+        <Box className={classes.introContainer}>
+          <Box className={classes.intro1And2}>
+            {t('home.intro.1')}
+            <Box className={classes.firstName}>{myPersonalInfos.FIRSTNAME}</Box>
+            {t('home.intro.2')}
           </Box>
 
-          <Box style={{ display: "flex" }}>
-            <Box
-              style={{
-                marginLeft: 5,
-                marginRight: 5,
-                color: THEMES.dark.primary,
-              }}
-            >
-              {t("home.intro.3")}
-            </Box>
-            {t("home.intro.4")}
+          <Box className={classes.flexContainer}>
+            <Box className={classes.intro3}>{t('home.intro.3')}</Box>
+            {t('home.intro.4')}
           </Box>
         </Box>
-      </Box>
-    </Layout>
+      </Grow>
+      <Grow in={true} timeout={duration * 3}>
+        <Box className={classes.buttonsContainer}>
+          <RoundButton
+            text={t('home.my.portfolio')}
+            onClick={handleNavigateToCareer}
+          />
+          <RoundButton
+            icon={<PlayArrowIcon fontSize="large" />}
+            invertedColor
+            onClick={handleNavigateToAboutMe}
+          />
+        </Box>
+      </Grow>
+    </Box>
   );
 };
 
